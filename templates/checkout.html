@@ -1,0 +1,21 @@
+{% block content %}
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container">
+
+<div style="height: 100px;background-color: rgb(23, 2, 6); color: beige ;padding: 30px; text-align: center;margin-top:70px ;">
+<h1>Order Placed Successfully</h1>
+</div>
+<div >
+    <img src="/static/ontheway-removebg-preview.png" alt="order on the way" style="width: 100%; height: 400px;">
+</div>
+<div style="text-align: center;">
+    <h3><b>Pay Rupees  {{res}} at the time of delivery</b></h3>
+</div>
+
+</div>
+
+{% endblock %}
+</body>
+</html>

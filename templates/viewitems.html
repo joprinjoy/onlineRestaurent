@@ -1,0 +1,27 @@
+{% block content %}
+{% load static %}
+{% include 'header.html' %}
+
+    <div class="container">
+        {% for item in items %}
+        <div class="row">
+            <div class="col-lg-2" style="padding: 10px; margin-top: 10px;">
+                
+                <img src="media/{{item.pfile}}" style="width: 100px;height: 100px;" alt="img">
+            </div>
+            <div class="col-lg-8" style="padding: 10px; margin-top: 10px;">
+                <p>{{item.pname}}</p>
+                <p>{{item.pdescription}} </p>
+                <p>Price: {{item.pprice}}</p>
+                <a href="deleteitem/{{item.id}}"><button class="btn btn-danger">Delete</button></a>
+                <a href="updateitempage/{{item.id}}"><button class="btn btn-default">Update</button></a>
+
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</body>
+</html>

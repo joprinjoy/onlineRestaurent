@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .menu_card{
+            height: 400px;
+            background-color: antiquewhite;
+            margin: 20px;
+    
+        }
+        img{
+            width: 200px;
+            height:250px
+        }
+
+        .checkout{
+
+            height: 50px;
+            background-color: rgb(222, 211, 90);
+            color: rgb(31, 5, 113);
+            font-size: 20px;
+        }
+        a{
+            text-decoration: none;
+        }
+       
+    </style>
+</head>
+<body>
+    <nav class="nav navbar-inverse">
+        <div class="container fluid">
+            
+                
+            {% if request.session.admin %} 
+            <ul class="nav navbar-nav "> 
+                <li><a href="addproduct">Add Items</a></li>
+                <li><a href="viewitems">view items</a></li>
+                <li><a href="viewuser">View Users</a></li>
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logoutone">Logout</a></li>
+                </ul>
+                
+
+
+            {% elif request.session.user %}  
+            <ul class="nav navbar-nav"> 
+                <li><a href="viewcart">Cart</a></li>
+                <li><a href="viewmenu">Explore Food</a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="logoutone">Logout</a></li>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav navbar-right" >
+                <li><a href="login">Login</a></li>
+                <li><a href="registeruser">Register</a></li>
+            </ul>
+        
+
+            {% endif %}
+
+        
+        </div>
+    </nav>

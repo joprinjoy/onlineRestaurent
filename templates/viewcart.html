@@ -1,0 +1,41 @@
+{% load static %}
+    {% block content %}
+    {% include 'header.html' %}
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Item</th>
+                <th>Unit Price</th>
+                <th>QTY</th>
+                <th>Price</th>
+                <th></th>
+
+                
+            </tr>
+            
+            
+            {% for item in res %}
+            <tr>
+                <td>{{ item.prname }}</td>
+                <td>{{ item.prprice }}</td>
+                <td>{{ item.prqty }}</td>
+                <td>{{ item.prtprice }}</td>
+                <td><a href="deleteFromcart/{{item.id}}"><button>Delete</button></a></td>
+
+            </tr>
+           
+            {% endfor %}
+            
+            <tr>
+                <td><b>TOTAL</b></td>
+                <td colspan="1">{{tprice}}</td>
+                <td colspan="3">{{tqty}}</td>
+            </tr>
+            
+        </table>
+        <a href="checkout"><button class="btn  btn-block btn-info checkout"><b>Checkout</b></button></a>
+    </div>
+    {% endblock %}
+</body>
+</html>

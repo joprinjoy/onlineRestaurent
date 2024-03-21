@@ -1,0 +1,22 @@
+{% load static %}
+    {% block content %}
+    {% include 'header.html' %}
+    <div class="container">
+
+        <h3>Register</h3>
+    <form  action="userreg" method="POST"  class="form group" >
+    {% csrf_token %}
+
+        <input class="form-control" type="text" placeholder="name" name="uname"><br>
+
+        <input class="form-control" type="email" placeholder="email" name="uemail"><br>
+        <input class="form-control" type="number" placeholder="phone" name="uphone"><br>
+        <input class="form-control" type="password" placeholder="password" name="upassword"><br>
+        
+        <button class="form-control btn btn-success" type="submit">Register</button>
+        <p>already Registered? <a href="login">Login</a></p>
+    </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

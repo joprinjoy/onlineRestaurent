@@ -1,0 +1,61 @@
+{% load static %}
+    {% block content %}
+    {% include 'header.html' %}
+<style>
+    body{background:#eee}
+    .ratings i{font-size: 16px;color: red}
+    .strike-text{color: red;text-decoration: line-through}
+    .product-image{width: 100%}
+    .dot{height: 7px;width: 7px;margin-left: 6px;margin-right: 6px;margin-top: 3px;background-color: blue;border-radius: 50%;display: inline-block}
+    .spec-1{color: #938787;font-size: 15px}
+    h5{font-weight: 400}
+    .para{font-size: 16px}
+    .outer{
+        border: dotted 1px;
+        margin-top: 10px;
+    }
+</style>
+    <body>
+
+    
+    <div class="container outer">
+     
+        {% for i in result %}
+         <div class=" mt-5 mb-5 outer">
+            
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-10">
+                    <div class="row p-2 bg-white border rounded">
+                        <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="media/{{i.pfile}}"></div>
+                        
+                        <div class="col-md-6 mt-1">
+                            <h5><b>{{i.pname}}</b></h5>
+                            <div class="d-flex flex-row">
+                                <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{i.pqty}}</span>
+                            </div>
+                            <div class="mt-1 mb-1 spec-1"><span>Organic</span><span class="dot"></span><span>Tasty</span><span class="dot"></span><span>Healthy<br></span></div>
+                    
+                            <p class="text-justify text-truncate para mb-0">{{i.pdescription}}<br><br></p>
+                        </div>
+
+                        <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                            <div class="d-flex flex-row align-items-center">
+                                <h4 class="mr-1">${{i.pprice}}</h4><span class="strike-text">$20.99</span>
+                            </div>
+                            <h6 class="text-success">Free Delivery</h6>
+                            <div class="d-flex flex-column mt-4"><a href="addTocart/{{i.id}}"><button class="btn btn-primary btn-sm" type="button">Add To Cart</button><a href="viewcart"><button class="btn btn-outline-primary btn-sm mt-2" type="button">View Cart</button></a></div>
+                        </div>
+                        
+                    </div>
+         
+     
+                </div>
+
+            </div>
+         </div>
+         {% endfor %}
+         {% endblock %}
+
+    </div>
+</body>
+</html>

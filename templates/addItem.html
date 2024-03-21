@@ -1,0 +1,22 @@
+    {% load static %}
+    {% block content %}
+    {% include 'header.html' %}
+    <div class="container">
+        <h3>Add products</h3>
+        <form action="additem" method="post" class="form group" enctype="multipart/form-data"><br>
+            {% csrf_token %}
+            <input type="number" name="pcode" placeholder="Item code" class="form-control"><br>
+            <input type="text" name="pname" placeholder="Product name" class="form-control"><br>
+            <input type="text" name="pdescription" placeholder="product Description" class="form-control"><br>
+            <input type="number" name="pqty" placeholder="quantity" class="form-control"><br>
+            <input type="number" name="pprice" placeholder="price" class="form-control"><br>
+            <input type="file" name="pfile"  class="form-control"><br>
+            <button type="submit" class="btn btn-success">Add Item</button>
+
+        </form>
+    </div>
+   
+    
+    {% endblock%}
+</body>
+</html>

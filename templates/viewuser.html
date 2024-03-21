@@ -1,0 +1,29 @@
+{% block content %}
+{% load static %}
+{% include 'header.html' %}
+    <div>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Password</th>
+            </tr>
+            <tr>
+                {% for item in users %}
+                <td>{{item.id}}</td>
+                <td>{{item.uname}}</td>
+                <td>{{item.uemail}}</td>
+                <td>{{item.uphone}}</td>
+                <td>{{item.upassword}}</td>
+
+
+                {% endfor %}
+            </tr>
+        </table>
+
+    </div>
+    {% endblock %}
+</body>
+</html>
